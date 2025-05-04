@@ -1,0 +1,43 @@
+ Session data: From 2025-03-09, 10:25:43 to 2025-03-09, 12:31:20
+Session: 025h
+Raw XP Gain: 8,791,840
+XP Gain: 26,375,520
+Raw XP/h: 5,038,273
+XP/h: 15,114,819
+Loot: 3,339,209
+Supplies: 660,342
+Balance: 2,678,867
+Damage: 13,777,877
+Damage/h: 6,628,163
+Healing: 4,463,097
+Healing/h: 2,178,020
+Killed Monsters:
+  1x carnivostrich
+  3x chicken
+  597x crape man
+  356x harpy
+  639x rhindeer
+Looted Items:
+  51x a great mana potion
+  35x a great health potion
+  15x a giant shimmering pearl
+  7x lightning legs
+  4x a glacier kilt
+  15x a magma coat
+  2x a ring of the sky
+  13059x a platinum coin
+  37x a violet gem
+  8x a yellow gem
+  10x a green gem
+  3x a time ring
+  9x a gold ring
+  22x a guardian halberd
+  1x a hammer of wrath
+  1x a heavy mace
+  1x a magic plate armor
+  8x a knight armor
+  3x a mastermind shield
+  16x a titan axe
+  14x a great spirit potion
+  3x a focus cape
+  1x a shockwave amulet

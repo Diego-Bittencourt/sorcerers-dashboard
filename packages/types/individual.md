@@ -1,15 +1,5 @@
-<template>
-  <div>
-    <div>My page</div>
-    <div>E o resultado eh {{  text  }} </div>
-  </div>
-</template>
-
-<script setup lang="ts">
-// import { parsePartyAnalyzer } from "utils";
-import { parseIndividualAnalyzer } from '@repo/utils/analyzer';
-const string = `Session data: From 2025-03-02, 10:268 to 2025-03-02, 1144
-Session: 00:45h
+Session data: From 2025-03-02, 10:268 to 2025-03-02, 1144
+Session: 00:37h
 Raw XP Gain: 5,044,521
 XP Gain: 15,133,563
 Raw XP/h: 8,561,139
@@ -50,7 +40,4 @@ Looted Items:
   25x dragolisk eye
   68x dragolisk poison gland
   51x wardragon claw
-  17x wardragon tooth`;
-const text = ref(parseIndividualAnalyzer(string));
-// const text = ref("texxt")
-</script>
+  17x wardragon tooth

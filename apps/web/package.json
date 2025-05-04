@@ -2,6 +2,13 @@
   "name": "nuxt-app",
   "private": true,
   "type": "module",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@repo/types": ["../types"],
+      "@repo/utils": ["../utils"]
+    }
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -14,6 +21,6 @@
     "nuxt": "^3.15.0",
     "vue": "latest",
     "vue-router": "latest",
-    "types": "*"
+    "@repo/utils": "workspace:*"
   }
 }

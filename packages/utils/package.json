@@ -1,13 +1,18 @@
 {
-  "name": "utils",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
-}
+    "name": "@repo/utils",
+    "type": "module",
+    "scripts": {
+      "dev": "tsc --watch",
+      "build": "tsc"
+    },
+    "exports": {
+      "./analyzer": {
+        "types": "./src/analyzer.ts",
+        "default": "./dist/analyzer.js"
+      }
+    },
+    "devDependencies": {
+      "@repo/typescript-config": "workspace:*",
+      "typescript": "latest"
+    }
+  }
