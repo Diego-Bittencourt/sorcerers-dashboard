@@ -7,7 +7,7 @@ function removeCommaFromNumbers(text: string | undefined): number {
 }
 
 function calculateSessionInHours(time: string | undefined): number {
-  if (time === undefined) return 1;
+  if (time === undefined) return 0;
   //retorna um tempo, no formato de HH:MMh em horas (number)
   const sessionParsed = time.replace("Session: ", "");
   const timeParsed = sessionParsed.replace("h", "");
