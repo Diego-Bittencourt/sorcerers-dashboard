@@ -3,14 +3,14 @@ import { defineStore } from "pinia";
 export const useModeStore = defineStore('mode', {
     state: () => ({
         mode: 'light',
-        vocacao: 'knight'
+        vocation: 'knight'
     }),
     actions: {
         setMode(mode: string) {
             this.mode = mode
         },
-        setVocacao(vocacao: string) {
-            this.vocacao = vocacao
+        setVocation(vocation: string) {
+            this.vocation = vocation
         }
     }
 })
