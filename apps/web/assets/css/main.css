@@ -19,14 +19,15 @@
     --color-light-foreground-primary: #212121;
     --color-light-foreground-secondary: #616161;
 
-
+    /* buttons text */
+    --color-light-button-text: #FAFAFA;
 
 
     /* Dark Theme */
     /* vocation colors */
     --color-dark-knight: #B0BEC5;
     --color-dark-paladin: #FFD54F;
-    --color-dark-sorcerer: #9C27B0;
+    --color-dark-sorcerer: #C95ACF;
     --color-dark-druid: #66BB6A;
     --color-dark-monk: #EF5350;
     --color-dark-novoc: #A0522D;
@@ -38,6 +39,9 @@
     /* foreground colors */
     --color-dark-foreground-primary: #E0E0E0;
     --color-dark-foreground-secondary: #B0B0B0;
+
+     /* buttons text */
+    --color-dark-button-text: #212121;
 }
 
 

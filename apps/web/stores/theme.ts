@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const useModeStore = defineStore('mode', {
+export const useThemeStore = defineStore('theme', {
     state: () => ({
         mode: 'light',
         vocation: 'knight'
