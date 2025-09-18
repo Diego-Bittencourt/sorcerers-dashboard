@@ -1,19 +1,19 @@
 import { computed } from 'vue'
-import { useModeStore } from '../../stores/modes'
+import { useThemeStore } from '../../stores/theme'
 
-export const useMode = () => {
-    const modeStore = useModeStore()
+export const useTheme = () => {
+    const themeStore = useThemeStore()
 
     const vocation = computed(() => {
-        return modeStore.vocation
+        return themeStore.vocation
     })
 
     const mode = computed(() => {
-        return modeStore.mode
+        return themeStore.mode
     })
 
     const theme = computed(() => {
-        return modeStore.mode + '-' + modeStore.vocation
+        return themeStore.mode + '-' + themeStore.vocation
     })
 
     return {
@@ -22,3 +22,5 @@ export const useMode = () => {
         theme
     }
 }
+
+export { useThemeStore }

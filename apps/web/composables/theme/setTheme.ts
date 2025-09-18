@@ -1,24 +1,24 @@
-import { useModeStore } from '../../stores/modes'
+import { useThemeStore } from '../../stores/theme'
 
 export type Mode = 'light' | 'dark'
 export type Vocation = 'knight' | 'paladin' | 'sorcerer' | 'druid' | 'monk' | 'novoc'
 
 export const setVocation = (vocation: Vocation) => {
-    const modeStore = useModeStore()
+    const themeStore = useThemeStore()
 
-    modeStore.setVocation(vocation)
+    themeStore.setVocation(vocation)
 
     return {
-        mode: modeStore.vocation,
+        mode: themeStore.vocation,
     }
 }
 
 export const setMode = (mode: Mode) => {
-    const modeStore = useModeStore()
+    const themeStore = useThemeStore()
 
-    modeStore.setMode(mode)
+    themeStore.setMode(mode)
 
     return {
-        vocation: modeStore.mode,
+        vocation: themeStore.mode,
     }
 }
