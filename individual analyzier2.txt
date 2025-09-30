@@ -1,0 +1,57 @@
+Session data: From 2025-03-20, 21:29:03 to 2025-03-20, 22:45:05
+Session: 01:16h
+Raw XP Gain: 2,569,200
+XP Gain: 4,166,220
+Raw XP/h: 593,848
+XP/h: 890,772
+Loot: 621,050
+Supplies: 160,058
+Balance: 460,992
+Damage: 2,810,030
+Damage/h: 2,101,712
+Healing: 533,373
+Healing/h: 404,602
+Killed Monsters:
+  48x arachnophobica
+  148x crazed winter rearguard
+  193x crazed winter vanguard
+  21x hibernal moth
+  58x soul-broken harbinger
+  40x thanatursus
+Looted Items:
+  14x a small enchanted sapphire
+  23x a small enchanted ruby
+  4x terra boots
+  16x a glacier amulet
+  2x a magma amulet
+  12x a glacier robe
+  7x a glacier mask
+  3x a terra hood
+  2260x a platinum coin
+  1x a blue gem
+  17x a life crystal
+  3x a mind stone
+  3x a hailstorm rod
+  1x a garlic necklace
+  3x an axe ring
+  46x an ice rapier
+  2x knight legs
+  1x a crown shield
+  1x a wood cape
+  1x a death ring
+  46x an ultimate health potion
+  4x spider fangs
+  1x an underworld rod
+  2x bloody pincers
+  6x an elvish talisman
+  14x an essence of a bad dream
+  9x an elven astral observer
+  19x a miraculum
+  1x a warrior's axe
+  2x a cyan crystal fragment
+  3x a mino shield
+  1x a ring of blue plasma
+  1x a collar of green plasma
+  13x a tiger eye
+  25x dream essence egg
+  51x an ice flower

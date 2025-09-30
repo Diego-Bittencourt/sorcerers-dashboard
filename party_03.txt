@@ -1,0 +1,30 @@
+Session data: From 2025-09-21, 22:14:56 to 2025-09-21, 23:40:30
+Session: 01:25h
+Loot Type: Market
+Loot: 2,305,920
+Supplies: 1,457,965
+Balance: 847,955
+Cara Sincero
+	Loot: 133,662
+	Supplies: 299,977
+	Balance: -166,315
+	Damage: 3,096,881
+	Healing: 499,434
+Doutor Katthhoo (Leader)
+	Loot: 2,415
+	Supplies: 182,457
+	Balance: -180,042
+	Damage: 4,100,044
+	Healing: 1,916,900
+Doutor Maneirim
+	Loot: 1,410,234
+	Supplies: 693,387
+	Balance: 716,847
+	Damage: 2,783,798
+	Healing: 739,898
+Intruzy
+	Loot: 759,609
+	Supplies: 282,144
+	Balance: 477,465
+	Damage: 1,920,552
+	Healing: 660,400

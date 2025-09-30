@@ -2,6 +2,13 @@
   "name": "nuxt-app",
   "private": true,
   "type": "module",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@repo/types": ["../types"],
+      "@repo/utils": ["../utils"]
+    }
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -17,6 +24,7 @@
     "pinia": "^3.0.2",
     "tailwindcss": "^4.1.13",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "@repo/utils": "workspace:*"
   }
 }

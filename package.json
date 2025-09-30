@@ -8,6 +8,12 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "turbo run clean && rm -rf node_modules"
   },
+  "compilerOptions": {
+    "paths": {
+      "@repo/types": ["./packages/types"],
+      "@repo/utils": ["./packages/utils"]
+    }
+  },
   "workspaces": [
     "apps/*",
     "packages/*"
