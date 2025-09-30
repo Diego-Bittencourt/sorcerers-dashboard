@@ -1,5 +1,3 @@
-
-
 function removeCommaFromNumbers(text: string | undefined): number {
   if (text === undefined) return 0;
   //remove as virgulas dos numeros
@@ -15,11 +13,10 @@ function calculateSessionInHours(time: string | undefined): number {
   return Number(hours) + Number(minutes) / 60;
 }
 
-function extractDate (text: string | undefined): Date {
+function extractDate(text: string | undefined): Date {
   if (text === undefined) return new Date();
   const date = text.replace("Session data: From ", "");
   const dateString = date.split(",")[0];
-  console.log(dateString);
   if (dateString === undefined) {
     return new Date();
   } else {
@@ -28,110 +25,190 @@ function extractDate (text: string | undefined): Date {
 }
 
 export function parseIndividualAnalyzer(text: string) {
+  //parsing the string into an array
+  const parsedArray = text ? text.split("\n") : [];
 
-  //quebrando em linhas
-  const parsedArray =  text.split("\n");
-  
-  //declarando o objeto
-  const individualAnalyzer: Record<string, any> = {};
+  // Initialize object with defaults
+  const individualAnalyzer: Record<string, any> = {
+    date: null,
+    duration: null,
+    rawXpPerHour: null,
+    damagePerHour: null,
+    healingPerHour: null,
+    killedMonsters: [],
+    lootedItems: [],
+  };
 
-  //extraindo a data
-  individualAnalyzer.date = extractDate(parsedArray[0]);
-  
-  // pegando a duracao em horas
-  individualAnalyzer.duration = calculateSessionInHours(parsedArray[1]);
-
-  individualAnalyzer.rawXpPerHour = removeCommaFromNumbers(parsedArray[4]?.replace("Raw XP/h: ", ""));
-  individualAnalyzer.damagePerHour = removeCommaFromNumbers(parsedArray[10]?.replace("Damage/h: ", ""));
-  individualAnalyzer.healingPerHour = removeCommaFromNumbers(parsedArray[12]?.replace("Healing/h: ", ""));
-
-  for (let index = 6; index < 9; index++) {
-      const [key, value] = parsedArray[index]?.split(': ') ?? []
-      if (key && value) {
-        individualAnalyzer[key.toLowerCase()] = removeCommaFromNumbers(value);
-      }
+  //verify if the data is valid
+  if (
+    parsedArray[0]?.includes("Session data") === false ||
+    parsedArray[1]?.includes("Session") === false ||
+    parsedArray[2]?.includes("Raw XP Gain") === false ||
+    parsedArray[9]?.includes("Damage") === false ||
+    parsedArray[11]?.includes("Healing") === false
+  ) {
+    //TODO insert an error message to the user
+    return individualAnalyzer;
   }
 
-  //coletando os dados dos monstros
-  const killedMonsters = [];
-  const lootedItems = [];
+  //extracting the date
+  if (parsedArray[0]) {
+    individualAnalyzer.date = extractDate(parsedArray[0]);
+  }
+
+  //extracting duration
+  if (parsedArray[1]) {
+    individualAnalyzer.duration = calculateSessionInHours(parsedArray[1]);
+  }
+
+  //setting duration to be used later
+  const duration = individualAnalyzer.duration
+    ? individualAnalyzer.duration
+    : 1;
+
+  //extracting numeric stats
+  if (parsedArray[2]) {
+    individualAnalyzer.rawXpPerHour = Math.round(
+      removeCommaFromNumbers(parsedArray[2].replace("Raw XP Gain: ", "")) /
+        duration
+    );
+  }
+
+  if (parsedArray[9]) {
+    individualAnalyzer.damagePerHour = Math.round(
+      removeCommaFromNumbers(parsedArray[9].replace("Damage: ", "")) / duration
+    );
+  }
+
+  if (parsedArray[11]) {
+    individualAnalyzer.healingPerHour = Math.round(
+      removeCommaFromNumbers(parsedArray[11].replace("Healing: ", "")) /
+        duration
+    );
+  }
+
+  //extract more numeric data
+  for (let index = 6; index < 9; index++) {
+    const line = parsedArray[index] ?? "";
+    const [key, value] = line.split(": ") ?? [];
+    if (key && value) {
+      individualAnalyzer[key.toLowerCase()] = removeCommaFromNumbers(value);
+    }
+  }
+
+  //extract monsters and loot
   let currentItem = "";
-  for(let index = 13; index < parsedArray.length; index++) {
-    const item = parsedArray[index];
-    if (item?.includes("Killed Monsters:")) {
+  for (let index = 13; index < parsedArray.length; index++) {
+    const item = parsedArray[index] ?? "";
+    if (item.includes("Killed Monsters:")) {
       currentItem = "killedMonsters";
-    } else if (item?.includes("Looted Items:")) {
+    } else if (item.includes("Looted Items:")) {
       currentItem = "lootedItems";
     } else {
-      const [key, value] = item?.split('x ') ?? [];
-      if (key && value) {
+      const [amountString, name] = item.split("x ") ?? [];
+      const amount = Number(amountString);
+      if (amount && name) {
         const itemObject = {
-          amount: Number(key),
-          name: value
-        }
-
+          amount,
+          name,
+        };
         if (currentItem === "killedMonsters") {
-          killedMonsters.push(itemObject);
+          individualAnalyzer.killedMonsters.push(itemObject);
         } else if (currentItem === "lootedItems") {
-          lootedItems.push(itemObject);
+          individualAnalyzer.lootedItems.push(itemObject);
         }
       }
     }
-    individualAnalyzer.killedMonsters = killedMonsters;
-    individualAnalyzer.lootedItems = lootedItems;
   }
-  return JSON.stringify(individualAnalyzer);
+  return individualAnalyzer;
 }
 
-
-
-
-
-
-
-
 export function parsePartyAnalyzer(text: string) {
-  const partyAnalyzer: Record<string, any> = {};
-  const parsedArray = text.split("\n");
+  //parsing the string into an array
+  const parsedArray = text ? text.split("\n") : [];
 
-  //extract date
-  partyAnalyzer.date = extractDate(parsedArray[0]);
+  // Initialize object with defaults
+  const partyAnalyzer: Record<string, any> = {
+    date: null,
+    duration: null,
+    lootPerHour: null,
+    suppliesPerHour: null,
+    balancePerHour: null,
+    players: [],
+  };
 
-  const duration = calculateSessionInHours(parsedArray[1]);
-
-  //pegando os dados da sessao
-  for (let index = 3; index < 6; index++) {
-      const [key, item] = parsedArray[index]?.split(":") ?? [];
-      if (key && item) {
-        partyAnalyzer[key.toLowerCase()] = Math.round(Number(removeCommaFromNumbers(item)) / duration);
-      }
+  //verify if the data is valid
+  if (
+    parsedArray[0]?.includes("Session data") === false ||
+    parsedArray[1]?.includes("Session") === false ||
+    parsedArray[2]?.includes("Loot Type") === false ||
+    parsedArray[3]?.includes("Loot") === false ||
+    parsedArray[4]?.includes("Supplies") === false ||
+    parsedArray[5]?.includes("Balance") === false
+  ) {
+    //TODO insert an error message to the user
+    return partyAnalyzer;
   }
 
+  //extract date
+  if (parsedArray[0]) {
+    partyAnalyzer.date = extractDate(parsedArray[0]);
+  }
 
-  //loop para pegar os players, a partir do 7
+  //extract duration
+  if (parsedArray[1]) {
+    partyAnalyzer.duration = calculateSessionInHours(parsedArray[1]);
+  }
+
+  //setting duration to be used later
+  const duration = partyAnalyzer.duration ? partyAnalyzer.duration : 1;
+
+  //extract numeric stats
+  for (let index = 3; index < 6; index++) {
+    const line = parsedArray[index] ?? "";
+    const [key, item] = line.split(":") ?? [];
+    if (key && item) {
+      partyAnalyzer[key.toLowerCase()] = Math.round(
+        Number(removeCommaFromNumbers(item)) / duration
+      );
+    }
+  }
+
+  //extract players data
   const playersData = [];
   let player: any = {};
-  for (let index = 6; index < parsedArray.length; index++) {
-    if (!parsedArray[index]?.includes(":")) {
-      //provavelmente e o nome de um player
-      if (index > 6) {
+  for (let index = 6; index <= parsedArray.length; index++) {
+    if (index === parsedArray.length) {
+      //the last iteration, so push the player object and finish the loop
+      playersData.push(player);
+      break;
+    }
+
+    //getting the array element. In the last iteration, it will be undefined
+    let item = parsedArray[index] ?? "";
+
+    if (!item.includes(":")) {
+      //the string doesn't include : , therefore it is a player's name
+
+      //the player object is already created, so we can push it to the array and reset it
       playersData.push(player);
       player = {};
-      }
-      player.name = parsedArray[index];
+
+      //setting the player's name and start creating a new player object
+      let playerName = item.trim().replace(" (Leader)", "");
+      player.name = playerName;
     } else {
-      //provavelmente e uma informacao do player
-      let item = parsedArray[index];
-      item = item?.replace(" ", "");
-      const [key, value] = item?.split(":") ?? [];
+      // the string includes :, therefore it is a player's information
+      let [key, value] = item.split(":");
       if (key && value) {
+        //create a property in the player object at the set the value from the current item
         player[key] = Math.round(removeCommaFromNumbers(value) / duration);
       }
     }
   }
   partyAnalyzer.players = playersData;
 
-  return JSON.stringify(partyAnalyzer);
+  return partyAnalyzer;
 
   // return JSON.stringify(parsedArray);
 }

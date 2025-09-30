@@ -7,7 +7,7 @@
     },
     "exports": {
       "./analyzer": {
-        "types": "./src/analyzer.ts",
+        "types": "./dist/analyzer.d.ts",
         "default": "./dist/analyzer.js"
       }
     },

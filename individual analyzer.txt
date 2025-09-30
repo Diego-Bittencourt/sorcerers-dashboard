@@ -1,5 +1,5 @@
- Session data: From 2025-03-09, 10:25:43 to 2025-03-09, 12:31:20
-Session: 025h
+Session data: From 2025-03-09, 10:25:43 to 2025-03-09, 12:31:20
+Session: 02:50h
 Raw XP Gain: 8,791,840
 XP Gain: 26,375,520
 Raw XP/h: 5,038,273

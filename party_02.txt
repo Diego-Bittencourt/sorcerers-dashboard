@@ -1,0 +1,18 @@
+Session data: From 2025-09-15, 22:52:59 to 2025-09-15, 239:49
+Session: 00:16h
+Loot Type: Leader
+Loot: 224,925
+Supplies: 93,455
+Balance: 131,470
+Intruzy
+    Loot: 25,816
+    Supplies: 44,876
+    Balance: -19,060
+    Damage: 520,161
+    Healing: 30,531
+Leozeh Creus (Leader)
+    Loot: 199,109
+    Supplies: 48,579
+    Balance: 150,530
+    Damage: 393,479
+    Healing: 121,342
