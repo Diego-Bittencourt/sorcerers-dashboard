@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+    /* Light Theme */
+    /* vocation colors */
+    --color-light-knight: #D32F2F;
+    --color-light-paladin: #FBC02D;
+    --color-light-sorcerer: #2E2E2E;
+    --color-light-druid: #1976D2;
+    --color-light-monk: #388E3C;
+    --color-light-novoc: #8D6E63;
+    
+
+    /* background colors */
+    --color-light-background-primary: #FAFAFA;
+    --color-light-background-secondary: #F0F0F0;
+
+    /* foreground colors */
+    --color-light-foreground-primary: #212121;
+    --color-light-foreground-secondary: #616161;
+
+    /* buttons text */
+    --color-light-button-text: #FAFAFA;
+
+
+    /* Dark Theme */
+    /* vocation colors */
+    --color-dark-knight: #B0BEC5;
+    --color-dark-paladin: #FFD54F;
+    --color-dark-sorcerer: #C95ACF;
+    --color-dark-druid: #66BB6A;
+    --color-dark-monk: #EF5350;
+    --color-dark-novoc: #A0522D;
+
+    /* background colors */
+    --color-dark-background-primary: #424242;
+    --color-dark-background-secondary: #616161;
+
+    /* foreground colors */
+    --color-dark-foreground-primary: #E0E0E0;
+    --color-dark-foreground-secondary: #B0B0B0;
+
+     /* buttons text */
+    --color-dark-button-text: #212121;
+}
+
+
+/*
+
+
+Black → #2E2E2E (Charcoal Black – softer than pure black, good for contrast)
+
+Blue → #1976D2 (Royal Blue – vibrant but not overwhelming)
+
+Yellow → #FBC02D (Amber Yellow – eye-catching without being too bright)
+
+Red → #D32F2F (Crimson Red – works great for accents or alerts)
+
+Brown → #6D4C41 (Rich Cocoa Brown – deeper and darker)
+
+Suggestion 1 → #388E3C (Forest Green – balances the warm tones)
+
+Suggestion 2 → #7B1FA2 (Royal Purple – adds a premium, creative touch)
+
+🌙 Dark Mode (7 Main Colors)
+
+Purple → #9C27B0 (Amethyst Purple – luminous but deep)
+
+Green → #66BB6A (Emerald Green – pops against dark backgrounds)
+
+Yellow/Golden → #FFD54F (Golden Amber – warm glow, readable in dark mode)
+
+Gray/Silver → #B0BEC5 (Cool Silver – elegant and subtle)
+
+Brown/Tan → #D2B48C (Classic Tan – much lighter, sandy tone)
+
+Suggestion 1 → #29B6F6 (Sky Blue – adds freshness in dark mode)
+
+Suggestion 2 → #EF5350 (Coral Red – vibrant, good for action buttons)
+*/

@@ -1,84 +1,81 @@
-# Turborepo starter
+# Tibia Insights Platform
 
-This is an official starter Turborepo.
+A **monorepo** powered by [Turborepo](https://turbo.build/repo), containing both frontend and backend applications, as well as shared packages.  
+The platform provides **data-driven insights, charts, and statistics** for players of the online RPG **Tibia**.
 
-## Using this example
+---
 
-Run the following command:
+## 📂 Repository Structure
 
-```sh
-npx create-turbo@latest
-```
+    .
+    ├── apps
+    │   ├── web    # Nuxt.js application (frontend)
+    │   └── api    # Nest.js application (backend)
+    │
+    ├── packages
+    │   ├── types          # Shared TypeScript types
+    │   ├── utils          # Utility functions shared across apps
+    │   ├── eslint-config  # Shared ESLint configuration
+    │   └── tsconfig       # Shared TypeScript configurations
+    │
+    └── turbo.json         # Turborepo configuration
 
-## What's inside?
+---
 
-This Turborepo includes the following packages/apps:
+## 🚀 Applications
 
-### Apps and Packages
+### **Web (Nuxt.js)**
+- Located in `apps/web`
+- Provides the **frontend interface** for Tibia players
+- Displays charts, statistics, and insights about the game
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+### **API (Nest.js)**
+- Located in `apps/api`
+- Handles **data collection, processing, and serving**
+- Exposes endpoints consumed by the `web` app
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+---
 
-### Utilities
+## 📦 Shared Packages
 
-This Turborepo has some additional tools already setup for you:
+- **types** → Shared TypeScript type definitions  
+- **utils** → General-purpose utility functions  
+- **eslint-config** → Standardized ESLint rules for consistent code style  
+- **tsconfig** → Centralized TypeScript configuration
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+---
 
-### Build
+## 🛠️ Development
 
-To build all apps and packages, run the following command:
+### Prerequisites
+- **Node.js** (>= 18.x)
+- **pnpm** (recommended) or `yarn`/`npm`
+- **Turborepo** (optional; `pnpm dlx turbo` works)
 
-```
-cd my-turborepo
-pnpm build
-```
+### Install Dependencies
 
-### Develop
+    pnpm install
 
-To develop all apps and packages, run the following command:
+### Run Development Servers
 
-```
-cd my-turborepo
-pnpm dev
-```
+Start both frontend (`web`) and backend (`api`) simultaneously:
 
-### Remote Caching
+    pnpm dev
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+Or run individually:
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+    # Web (Nuxt)
+    pnpm --filter web dev
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+    # API (Nest)
+    pnpm --filter api start:dev
 
-```
-cd my-turborepo
-npx turbo login
-```
+---
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+## 📊 Features
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+- **Nuxt.js frontend** with modern SSR/SPA features  
+- **Nest.js backend** with modular architecture  
+- **Turborepo-powered monorepo** for efficient builds and caching  
+- **Charts and analytics** providing player insights into the Tibia universe  
+- **Reusable packages** (types, utils, linting, configs)  
