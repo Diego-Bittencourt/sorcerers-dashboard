@@ -1,30 +1,58 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { DummySoulcoreCreatures } from './dummyData/DummySoulcoreCreatures';
-import { DummySoulcorePlayers } from './dummyData/DummySoulcorePlayers';
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import {
+  CharacterSoulCore,
+  CharacterSoulCoreDocument,
+} from './schemas/character.schema';
 
 @Injectable()
 export class SoulcoreService {
-  getCreaturesFromPlayer(playerName: string) {
-    if (playerName === '' || playerName === 'error') {
-      throw new NotFoundException('Player not found');
-    }
-    //currently, dummy data
-    const response = {
-      playerName: playerName,
-      creatures: DummySoulcoreCreatures,
-    };
-    return response;
+  constructor(
+    @InjectModel(CharacterSoulCore.name)
+    private readonly characterModel: Model<CharacterSoulCoreDocument>,
+  ) {}
+
+  async getCharacterSoulCore(characterName: string) {
+    console.log(characterName, 'the player name');
+    const list = await this.characterModel.findOne({
+      character: characterName.trim(),
+    });
+    console.log('list', list);
+    return list;
   }
 
-  getPlayersFromCreature(creatureName: string) {
-    if (creatureName === '' || creatureName === 'error') {
-      throw new NotFoundException('Creature not found');
-    }
-    //currently, dummy data
-    const response = {
-      creatureName: creatureName,
-      players: DummySoulcorePlayers,
-    };
-    return response;
+  async addCreatureToCharacterList(
+    creatureName: string[],
+    characterName: string,
+  ) {
+    creatureName.forEach(async (creatureName) => {
+      await this.characterModel.findOneAndUpdate(
+        {
+          character: characterName,
+          creatures: { $ne: creatureName },
+        },
+        { $push: { creatures: creatureName } },
+        { new: true },
+      );
+    });
+
+    return await this.getCharacterSoulCore(characterName);
+  }
+
+  //removing a creature from a player is not a common event, because it is not a direct interaction in the game.
+  //so the only real scenario to remove a creature from a player is when the creature was wrongly assigned to the player
+  async removeCreatureFromPlayerList(
+    creatureName: string,
+    characterName: string,
+  ) {
+    return await this.characterModel.findOneAndUpdate(
+      {
+        character: characterName,
+      },
+      {
+        $pull: { creatures: creatureName },
+      },
+    );
   }
 }
