@@ -43,5 +43,17 @@ export default <Partial<Config>>{
     "shadow-dark-novoc",
     "shadow-light-knight",
     "shadow-dark-knight",
+    "border-light-knight",
+    "border-dark-knight",
+    "border-light-paladin",
+    "border-dark-paladin",
+    "border-light-sorcerer",    
+    "border-dark-sorcerer",
+    "border-light-druid",
+    "border-dark-druid",
+    "border-light-monk",
+    "border-dark-monk",
+    "border-light-novoc",
+    "border-dark-novoc",
   ]
 }
