@@ -18,10 +18,12 @@ export class SoulcoreController {
     return this.soulcoreService.getCharacterSoulCore(playerName);
   }
 
-  @Get('soulcore/:creatureName')
+  @Get('creature/:creatureName')
   getCreatureSoulCoreList(@Param('creatureName') creatureName: string) {
-    console.log(creatureName);
-    return null;
+    if (!creatureName || creatureName.trim() === '') {
+      throw new ForbiddenException('Creature name is required');
+    }
+    return this.soulcoreService.getCharactersFromCreatures(creatureName);
   }
 
   @Post('add-creature')

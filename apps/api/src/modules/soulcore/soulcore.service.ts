@@ -18,7 +18,6 @@ export class SoulcoreService {
     const list = await this.characterModel.findOne({
       character: characterName.trim(),
     });
-    console.log('list', list);
     return list;
   }
 
@@ -31,17 +30,6 @@ export class SoulcoreService {
       { $addToSet: { creatures: { $each: creatureName } } },
       { new: true },
     );
-    // creatureName.forEach(async (creatureName) => {
-    //   await this.characterModel.findOneAndUpdate(
-    //     {
-    //       character: characterName,
-    //       creatures: { $ne: creatureName },
-    //     },
-    //     { $push: { creatures: creatureName } },
-    //     { new: true },
-    //   );
-    // });
-
     return await this.getCharacterSoulCore(characterName);
   }
 
@@ -59,5 +47,9 @@ export class SoulcoreService {
         $pull: { creatures: creatureName },
       },
     );
+  }
+
+  async getCharactersFromCreatures(creatureName: string) {
+    return await this.characterModel.find({ creatures: creatureName });
   }
 }
