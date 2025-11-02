@@ -25,7 +25,7 @@ export class SoulcoreController {
   }
 
   @Post('add-creature')
-  addCreatureToCharacterList(
+  async addCreatureToCharacterList(
     @Body('creatureName') creatureName: string[],
     @Body('characterName') characterName: string,
   ) {
@@ -37,7 +37,7 @@ export class SoulcoreController {
       throw new ForbiddenException('Character name is required');
     }
 
-    return this.soulcoreService.addCreatureToCharacterList(
+    return await this.soulcoreService.addCreatureToCharacterList(
       creatureName,
       characterName,
     );

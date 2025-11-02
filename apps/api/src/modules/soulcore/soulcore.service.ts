@@ -26,16 +26,21 @@ export class SoulcoreService {
     creatureName: string[],
     characterName: string,
   ) {
-    creatureName.forEach(async (creatureName) => {
-      await this.characterModel.findOneAndUpdate(
-        {
-          character: characterName,
-          creatures: { $ne: creatureName },
-        },
-        { $push: { creatures: creatureName } },
-        { new: true },
-      );
-    });
+    await this.characterModel.findOneAndUpdate(
+      { character: characterName },
+      { $addToSet: { creatures: { $each: creatureName } } },
+      { new: true },
+    );
+    // creatureName.forEach(async (creatureName) => {
+    //   await this.characterModel.findOneAndUpdate(
+    //     {
+    //       character: characterName,
+    //       creatures: { $ne: creatureName },
+    //     },
+    //     { $push: { creatures: creatureName } },
+    //     { new: true },
+    //   );
+    // });
 
     return await this.getCharacterSoulCore(characterName);
   }
