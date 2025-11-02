@@ -13,8 +13,20 @@ export class SoulcoreService {
     private readonly characterModel: Model<CharacterSoulCoreDocument>,
   ) {}
 
+  async checkForCharacterAndAddIfNotExist(characterName: string) {
+    const list = await this.characterModel.findOne({
+      character: characterName.trim(),
+    });
+    if (!list) {
+      await this.characterModel.create({
+        character: characterName.trim(),
+        creatures: [],
+      });
+    }
+    return true;
+  }
+
   async getCharacterSoulCore(characterName: string) {
-    console.log(characterName, 'the player name');
     const list = await this.characterModel.findOne({
       character: characterName.trim(),
     });
@@ -25,6 +37,9 @@ export class SoulcoreService {
     creatureName: string[],
     characterName: string,
   ) {
+    //check if the character exists and add if not
+    await this.checkForCharacterAndAddIfNotExist(characterName);
+
     await this.characterModel.findOneAndUpdate(
       { character: characterName },
       { $addToSet: { creatures: { $each: creatureName } } },
