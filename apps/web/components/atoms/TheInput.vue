@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`w-full group relative sm:h-10 md:h-12 lg:h-14 my-3 text-${mode}-foreground-primary`"
+    :class="`w-full group relative h-14 my-3 text-${mode}-foreground-primary`"
   >
     <p
       :class="`absolute left-2 -top-4 px-2 py-1 bg-${mode}-background-secondary z-50 transition-all duration-300 ease-in-out`"
@@ -57,7 +57,7 @@ const emit = defineEmits(["update:modelValue"]);
 
 const { theme, mode } = useTheme();
 
-const inputContent = ref("Dummy data");
+const inputContent = ref("");
 
 const inputElement = useTemplateRef("input-element");
 const clearInputContent = () => {

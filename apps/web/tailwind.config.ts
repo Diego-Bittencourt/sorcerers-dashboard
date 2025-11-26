@@ -55,5 +55,17 @@ export default <Partial<Config>>{
     "border-dark-monk",
     "border-light-novoc",
     "border-dark-novoc",
+    "group-focus-within:border-light-knight",
+    "group-focus-within:border-dark-knight",
+    "group-focus-within:border-light-paladin",
+    "group-focus-within:border-dark-paladin",
+    "group-focus-within:border-light-sorcerer",    
+    "group-focus-within:border-dark-sorcerer",
+    "group-focus-within:border-light-druid",
+    "group-focus-within:border-dark-druid",
+    "group-focus-within:border-light-monk",
+    "group-focus-within:border-dark-monk",
+    "group-focus-within:border-light-novoc",
+    "group-focus-within:border-dark-novoc",
   ]
 }
