@@ -67,5 +67,17 @@ export default <Partial<Config>>{
     "group-focus-within:border-dark-monk",
     "group-focus-within:border-light-novoc",
     "group-focus-within:border-dark-novoc",
+    "hover:shadow-light-sorcerer",
+    "hover:shadow-dark-sorcerer",
+    "hover:shadow-light-druid",
+    "hover:shadow-dark-druid",
+    "hover:shadow-light-monk",
+    "hover:shadow-dark-monk",
+    "hover:shadow-light-novoc",
+    "hover:shadow-dark-novoc",
+    "hover:shadow-light-knight",
+    "hover:shadow-dark-knight",
+    "hover:shadow-light-paladin",
+    "hover:shadow-dark-paladin"
   ]
 }
