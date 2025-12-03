@@ -78,6 +78,18 @@ export default <Partial<Config>>{
     "hover:shadow-light-knight",
     "hover:shadow-dark-knight",
     "hover:shadow-light-paladin",
-    "hover:shadow-dark-paladin"
+    "hover:shadow-dark-paladin",
+    "text-light-knight",
+    "text-light-sorcerer",
+    "text-light-druid",
+    "text-light-monk",
+    "text-light-paladin",
+    "text-light-novoc",
+    "text-dark-knight",
+    "text-dark-sorcerer",
+    "text-dark-druid",
+    "text-dark-monk",
+    "text-dark-novoc",
+    "text-dark-paladin",
   ]
 }
