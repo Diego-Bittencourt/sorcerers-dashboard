@@ -1,0 +1,60 @@
+Session data: From 2025-09-21, 08:25:42 to 2025-09-21, 09:363
+Session: 01:10h
+Raw XP Gain: 915,489
+XP Gain: 1,373,032
+Raw XP/h: 0
+XP/h: 0
+Loot: 400,702
+Supplies: 75,649
+Balance: 325,053
+Damage: 1,496,138
+Damage/h: 644,134
+Healing: 136,288
+Healing/h: 61,213
+Killed Monsters:
+  42x behemoth
+  21x blood beast
+  76x devourer
+  69x drillworm
+  44x elder wyrm
+  248x glooth anemone
+  10x wyrm
+Looted Items:
+  37x a strong mana potion
+  4x a great health potion
+  3x a terra amulet
+  19x a small diamond
+  12x a small sapphire
+  81x a small ruby
+  67x a small emerald
+  26x a small amethyst
+  2x a talon
+  419x a platinum coin
+  1x a yellow gem
+  1x a dwarven ring
+  1x iron ore
+  1x a behemoth claw
+  14x an ultimate health potion
+  2x a springsprout rod
+  1x a wand of starstorm
+  76x a small topaz
+  2x poisonous slime
+  9x a wyrm scale
+  1x a clay lump
+  6x a battle stone
+  4x a green crystal splinter
+  5x a brown crystal splinter
+  8x a blue crystal splinter
+  2x a pulverized ore
+  4x a vein of ore
+  2x a silver raid token
+  2x a glooth cape
+  9x a glooth whip
+  9x a glooth club
+  4x a glooth blade
+  4x a glooth axe
+  8x a glob of glooth
+  2x a glooth amulet
+  5x a slime heart
+  6x a poisoned fang
+  36x a slimy leaf tentacle
