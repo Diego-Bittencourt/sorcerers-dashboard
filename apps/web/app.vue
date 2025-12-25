@@ -2,16 +2,7 @@
   <TheCard>
     <TheThemeController />
   </TheCard>
-  <TheCard>
-  <div class="w-full h-full mt-5">
-    <p>Here is the input element</p>
-    
-    <TheInput v-model="inputContent"/>
-
-    <p>Here is the content: {{ inputContent}}</p>
-    <p> Here is the theme: {{ theme }}</p>
-  </div>
-  </TheCard>
+  <NuxtPage />
 </template>
 
 <script setup lang="ts">

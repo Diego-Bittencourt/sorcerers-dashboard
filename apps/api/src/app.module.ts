@@ -3,7 +3,6 @@ import { SoulcoreModule } from './modules/soulcore/soulcore.module';
 import { MongooseModule } from '@nestjs/mongoose';
 
 import { ConfigModule, ConfigService } from '@nestjs/config';
-console.log('HEREEEEEEEEEEEEE', process.env.MONGO_CONNECT);
 @Module({
   imports: [
     ConfigModule.forRoot({
