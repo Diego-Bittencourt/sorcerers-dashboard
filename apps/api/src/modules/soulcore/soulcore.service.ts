@@ -65,6 +65,10 @@ export class SoulcoreService {
   }
 
   async getCharactersFromCreatures(creatureName: string) {
-    return await this.characterModel.find({ creatures: creatureName });
+    const list = await this.characterModel.find({
+      creatures: { $nin: creatureName },
+    });
+    const listOfCharacters = list.map((item) => item.character);
+    return listOfCharacters;
   }
 }
