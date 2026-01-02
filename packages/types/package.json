@@ -1,13 +1,22 @@
 {
+    "name": "@repo/types",
+    "type": "module",
     "version": "1.0.0",
     "description": "",
     "main": "index.ts",
     "types": "index.ts",
-    "name": "@repo/types",
     "sideEffects": false,
     "scripts": {
+      "dev": "tsc --watch",
+      "build": "tsc",
       "test": "echo \"Error: no test specified\" && exit 1",
       "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    },
+    "exports": {
+      ".": {
+        "types": "./dist/index.ts",
+        "default": "./dist/index.js"
+      }
     },
     "devDependencies": {
     "@repo/typescript-config": "workspace:*",

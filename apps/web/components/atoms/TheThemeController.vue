@@ -60,11 +60,9 @@ const toggleTooltip = () => {
   if (!tooltip.value) return
   tooltip.value.classList.remove('hidden')
   tooltip.value.classList.add('flex')
-  console.log("toggleToolTip")
 }
 
 const closeOnOutsideClick = (e: any) => {
-  console.log("closeOnOutsideClick",e.target)
   if (!tooltip.value || !e.target) return
 
   // If clicked outside the tooltip, close it

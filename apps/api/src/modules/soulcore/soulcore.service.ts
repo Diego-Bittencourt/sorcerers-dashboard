@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import {
@@ -27,10 +27,38 @@ export class SoulcoreService {
   }
 
   async getCharacterSoulCore(characterName: string) {
+    let requestResult = '';
+    let listOfCreatures: string[] = [];
+    let listOfCharacters: string[] = [];
     const list = await this.characterModel.findOne({
       character: characterName.trim(),
     });
-    return list;
+    if (!list || list.creatures.length === 0) {
+      throw new HttpException('Character not found', HttpStatus.NOT_FOUND);
+    } else {
+      requestResult = 'Request successful';
+      listOfCreatures = list.creatures;
+      listOfCharacters = [list.character];
+    }
+
+    const result = {
+      characters: listOfCharacters,
+      creatures: listOfCreatures,
+      requestResult: requestResult,
+    };
+    return result;
+  }
+
+  async getPartySoulCore(party: string[]) {
+    const list: string[] = [];
+    for (const character of party) {
+      const characterList = await this.getCharacterSoulCore(character);
+      if (characterList) {
+        list.push(...characterList.creatures);
+      }
+    }
+    const uniqueArray = [...new Set(list)];
+    return uniqueArray;
   }
 
   async addCreatureToCharacterList(
@@ -69,6 +97,11 @@ export class SoulcoreService {
       creatures: { $nin: creatureName },
     });
     const listOfCharacters = list.map((item) => item.character);
-    return listOfCharacters;
+    const result = {
+      characters: listOfCharacters,
+      creatures: [creatureName],
+      requestResult: 'Request successful',
+    };
+    return result;
   }
 }

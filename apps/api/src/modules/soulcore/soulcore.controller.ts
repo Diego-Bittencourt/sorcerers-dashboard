@@ -26,6 +26,11 @@ export class SoulcoreController {
     return this.soulcoreService.getCharactersFromCreatures(creatureName);
   }
 
+  @Post('party')
+  async getPartySoulCore(@Body('party') party: string[]) {
+    return await this.soulcoreService.getPartySoulCore(party);
+  }
+
   @Post('add-creature')
   async addCreatureToCharacterList(
     @Body('creatureName') creatureName: string[],

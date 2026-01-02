@@ -64,7 +64,10 @@ const clearInputContent = () => {
         inputElement.value.value = "";
     }
   emit("update:modelValue", "");
-  console.log("click");
 };
+
+defineExpose({
+  clearInputContent,
+});
 
 </script>
